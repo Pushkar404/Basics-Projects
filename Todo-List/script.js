@@ -14,7 +14,7 @@ function saveTodos() {
  * todo = {text: text; completed: false}
  */
 function createTodoNode(todo, index) {
-  const list = document.createElement("li");
+  const li = document.createElement("li");
 
   // checkBox to check
   const checkBox = document.createElement("input");
@@ -22,7 +22,7 @@ function createTodoNode(todo, index) {
   checkBox.checked = !!todo.completed;
 
   checkBox.addEventListener("change", () => {
-    checkBox.checked = todo.completed;
+    todo.completed = checkBox.checked;
     saveTodos();
     render();
   });
@@ -34,6 +34,21 @@ function createTodoNode(todo, index) {
   if (todo.completed) {
     textSpan.style.textDecoration = "line-through";
   }
+
+  // delete button
+  const delBtn = document.createElement("button");
+  delBtn.textContent = "🗑️";
+  delBtn.addEventListener("click", () => {
+    todos.splice(index, 1);
+    saveTodos();
+    render();
+  });
+
+  li.appendChild(checkBox);
+  li.appendChild(textSpan);
+  li.appendChild(delBtn);
+
+  return li;
 }
 
 function addTodo() {
@@ -46,8 +61,21 @@ function addTodo() {
   });
   saveTodos();
   render();
+  input.value = "";
 }
 
 function render() {
-  // code
+  list.innerHTML = "";
+  todos.forEach((todo, index) => {
+    const node = createTodoNode(todo, index);
+    list.appendChild(node);
+  });
 }
+
+button.addEventListener("click", addTodo);
+
+input.addEventListener("keydown", (event) => {
+  if (event.key == "Enter") addTodo();
+});
+
+render();
