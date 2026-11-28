@@ -36,44 +36,58 @@ main {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 15px;
   text-align: center;
 }
 h1 {
   color: white;
   font-size: 40px;
   font-weight: bold;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 15px;
 }
 .card {
   width: 80%;
   max-width: 300px;
-  margin: 30px auto;
+  margin: 15px auto;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 40px;
+  padding: 25px 30px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   backdrop-filter: blur(10px);
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.6);
 }
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 #input-text {
+  width: 60%;
+  max-width: 350px;
+  height: 50px;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.1);
   border: 0;
   outline: 0;
-  padding: 15px;
+  padding: 0 20px;
   border-radius: 15px;
   color: white;
+  font-size: 1rem;
 }
 #input-text::placeholder {
   color: rgba(255, 255, 255, 0.8);
 }
 #input-btn {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  width: auto;
-  height: auto;
-  color: rgba(250, 250, 250, 0.6);
-  border-radius: 5px;
+  border: 0;
+  padding: 15px 25px;
+  color: white;
+  border-radius: 15px;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -94,10 +108,61 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: aliceblue;
   gap: 8px;
 }
 
-#weather-result h2 img {
-  width: 25px;
-  height: 25px;
+h1 img {
+  width: 45px;
+  height: 45px;
+}
+
+#input-btn {
+  height: 50px;
+  width: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 0;
+  color: white;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#weather-result p {
+  color: white;
+  font-size: 20px;
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+  box-sizing: border-box;
+  color: aliceblue;
+
+  background: rgba(10, 20, 55, 0.45);
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+footer p {
+  margin: 10px; /* <p> ka default top/bottom margin hataya */
 }
